@@ -9,7 +9,7 @@ export const usePortfolioData = () => {
   useEffect(() => {
     const fetchPortfolioData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/portfolio');
+        const response = await axios.get('https://portfolio-backend-9jnf.onrender.com/api/portfolio');
         // console.log(response.data);
         setPortfolioData(response.data);
         setIsLoading(false);

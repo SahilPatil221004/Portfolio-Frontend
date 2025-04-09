@@ -17,7 +17,7 @@ const Contact = () => {
     setStatus('Sending...');
 
     try {
-      const res = await fetch('https://portfolio-backend-9jnf.onrender.com/api/contact', {
+      const res = await fetch('https://portfolio-backend-9jnf.onrender.com/api/contact/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

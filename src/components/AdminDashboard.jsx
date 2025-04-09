@@ -32,7 +32,7 @@ const AdminDashboard = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {   
-      const response = await axios.put('https://virendra-bagade-mu.vercel.app/api/portfolio', portfolio );
+      const response = await axios.put('https://portfolio-backend-9jnf.onrender.com/api/portfolio', portfolio );
       alert('Portfolio updated successfully');
     } catch (err) {
       setError('Failed to update portfolio');

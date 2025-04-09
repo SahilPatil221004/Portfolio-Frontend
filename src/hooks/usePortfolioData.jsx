@@ -9,7 +9,7 @@ export const usePortfolioData = () => {
   useEffect(() => {
     const fetchPortfolioData = async () => {
       try {
-        const response = await axios.get('https://virendra-bagade-mu.vercel.app/api/portfolio');
+        const response = await axios.get('https://portfolio-backend-9jnf.onrender.com/api/portfolio');
         // console.log(response.data);
         setPortfolioData(response.data);
         setIsLoading(false);

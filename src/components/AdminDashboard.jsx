@@ -13,7 +13,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchPortfolio = async () => {
       try {
-        const response = await axios.get('https://virendra-bagade-mu.vercel.app/api/portfolio');
+        const response = await axios.get('https://portfolio-backend-9jnf.onrender.com/api/portfolio');
         setPortfolio(response.data);
         setLoading(false);
       } catch (err) {

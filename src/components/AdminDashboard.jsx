@@ -32,7 +32,7 @@ const AdminDashboard = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {   
-      const response = await axios.put('https://portfolio-backend-9jnf.onrender.com/api/portfolio', portfolio );
+      const response = await axios.put('https://portfolio-backend-9jnf.onrender.com/api/portfolio', portfolio);
       alert('Portfolio updated successfully');
     } catch (err) {
       setError('Failed to update portfolio');
@@ -44,6 +44,7 @@ const AdminDashboard = () => {
     navigate('/admin/login');
   };
 
+  // Add functions
   const addWorkExperience = () => {
     setPortfolio({
       ...portfolio,
@@ -88,6 +89,43 @@ const AdminDashboard = () => {
         level: '',
         description: ''
       }]
+    });
+  };
+
+  // Delete functions
+  const deleteWorkExperience = (index) => {
+    const newWork = [...portfolio.work];
+    newWork.splice(index, 1);
+    setPortfolio({
+      ...portfolio,
+      work: newWork
+    });
+  };
+
+  const deletePublication = (index) => {
+    const newPublications = [...portfolio.publications];
+    newPublications.splice(index, 1);
+    setPortfolio({
+      ...portfolio,
+      publications: newPublications
+    });
+  };
+
+  const deleteProject = (index) => {
+    const newProjects = [...portfolio.projects];
+    newProjects.splice(index, 1);
+    setPortfolio({
+      ...portfolio,
+      projects: newProjects
+    });
+  };
+
+  const deleteTeachingExperience = (index) => {
+    const newTeaching = [...portfolio.teaching];
+    newTeaching.splice(index, 1);
+    setPortfolio({
+      ...portfolio,
+      teaching: newTeaching
     });
   };
 
@@ -214,6 +252,16 @@ const AdminDashboard = () => {
           </div>
           {portfolio.work.map((job, index) => (
             <div key={index} className="mb-4 border-b pb-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Experience #{index + 1}</h3>
+                <button 
+                  type="button"
+                  onClick={() => deleteWorkExperience(index)}
+                  className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                >
+                  Delete
+                </button>
+              </div>
               <input
                 type="text"
                 placeholder="Title"
@@ -276,6 +324,16 @@ const AdminDashboard = () => {
           </div>
           {portfolio.publications.map((publication, index) => (
             <div key={index} className="mb-4 border-b pb-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Publication #{index + 1}</h3>
+                <button 
+                  type="button"
+                  onClick={() => deletePublication(index)}
+                  className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                >
+                  Delete
+                </button>
+              </div>
               <input
                 type="text"
                 placeholder="Title"
@@ -338,6 +396,16 @@ const AdminDashboard = () => {
           </div>
           {portfolio.projects.map((project, index) => (
             <div key={index} className="mb-4 border-b pb-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Project #{index + 1}</h3>
+                <button 
+                  type="button"
+                  onClick={() => deleteProject(index)}
+                  className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                >
+                  Delete
+                </button>
+              </div>
               <input
                 type="text"
                 placeholder="Title"
@@ -368,13 +436,13 @@ const AdminDashboard = () => {
                   newProjects[index].description = e.target.value;
                   setPortfolio({ ...portfolio, projects: newProjects });
                 }}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2"
                 rows="3"
               />
               <input
                 type="text"
                 placeholder="Project Link"
-                value={project.link}
+                value={project.link || ''}
                 onChange={(e) => {
                   const newProjects = [...portfolio.projects];
                   newProjects[index].link = e.target.value;
@@ -400,6 +468,16 @@ const AdminDashboard = () => {
           </div>
           {portfolio.teaching.map((teaching, index) => (
             <div key={index} className="mb-4 border-b pb-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Course #{index + 1}</h3>
+                <button 
+                  type="button"
+                  onClick={() => deleteTeachingExperience(index)}
+                  className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                >
+                  Delete
+                </button>
+              </div>
               <input
                 type="text"
                 placeholder="Course Title"

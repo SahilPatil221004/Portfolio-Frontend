@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://portfolio-backend-9jnf.onrender.com/api/auth/login', { email, password });
+      const response = await axios.post('https://virendra-bagade-mu.vercel.app/api/auth/login', { email, password });
       const { token } = response.data;
       
       localStorage.setItem('token', token);

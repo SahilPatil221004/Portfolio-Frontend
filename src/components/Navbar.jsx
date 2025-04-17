@@ -68,7 +68,7 @@ const Navbar = () => {
         <div className="flex flex-col h-full">
           {/* Header/Logo Area */}
           <div className="p-6 border-b border-gray-200 dark:border-gray-800">
-            <span className="text-xl font-bold text-gray-800 dark:text-white">Dr. XYZ</span>
+            <span className="text-xl font-bold text-gray-800 dark:text-white">Prof V.V.Bagade</span>
           </div>
           
           {/* Navigation Links */}

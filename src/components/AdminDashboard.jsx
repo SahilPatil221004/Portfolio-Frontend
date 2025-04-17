@@ -205,7 +205,7 @@ const AdminDashboard = () => {
                 Avatar URL
               </label>
               <input
-                type="text"
+                type="image"
                 value={portfolio.personalInfo?.avatarURL || ''}
                 onChange={(e) => setPortfolio({
                   ...portfolio,
